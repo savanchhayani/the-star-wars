@@ -1,28 +1,27 @@
 import React from "react";
-import WebSeriesList from "../containers/WebSeriesList";
-import { Loading } from "./loading/Loading";
+import PlanetList from "../containers/PlanetList";
 import ListSearch from "../containers/ListSearch";
 import SearchResultNotFound from "../containers/SearchResultNotFound";
 import Message from "./Message";
+import Logout from "../containers/Logout";
 
 class Home extends React.PureComponent {
   componentDidMount() {
-    this.props.fetchWebSeriesRequested();
+    this.props.searchPlanets('');
   }
 
   render() {
     const {
       isFetching,
       isFetched,
-      lists,
     } = this.props;
 
     return (
       <div className="home-container">
-        { isFetching && <Loading /> }
-        { !isFetching && <ListSearch placeholder="search web series" /> }
-        { !isFetching && <Message className="header-title" message="List of web series" /> }
-        { isFetched && lists.length > 0 && <WebSeriesList /> }
+        { <ListSearch placeholder="search planets" /> }
+          <Logout />
+        { <Message className="header-title" message="Planets" /> }
+        { <PlanetList isFetching={isFetching} /> }
         { isFetched && <SearchResultNotFound /> }
       </div>
     )

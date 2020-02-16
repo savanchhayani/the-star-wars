@@ -1,8 +1,28 @@
 import axios from "axios";
-import { WEB_LIST_API } from "../constants/apis";
+import {
+  STAR_WARS_PLANETS,
+  STAR_WARS_CHARACTER_SEARCH,
+} from "../constants/apis";
 
-const fetchWebSeriesCall = () => {
-  return axios.get(WEB_LIST_API);
+/**
+ * fetch API used to get the list of star wars planets.
+ */
+const fetchStarWarsPlanetsCall = (planetName) => {
+  const url = `${STAR_WARS_PLANETS}=${planetName}`;
+  return axios.get(url);
 };
 
-export { fetchWebSeriesCall };
+/**
+ * search API used to authenticate the user by fetching the user info
+ * by username.
+ * @param {String} username - username
+ */
+const userLoginCall = (username) => {
+  const url = `${STAR_WARS_CHARACTER_SEARCH}=${username}`;
+  return axios.get(url);
+};
+
+export {
+  fetchStarWarsPlanetsCall,
+  userLoginCall
+};

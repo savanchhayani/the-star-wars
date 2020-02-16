@@ -1,3 +1,4 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "./variables";
 @import "./components";
 
@@ -7,5 +8,9 @@
   justify-content: center;
   height: calc(100vh - 10px);
   color: $color;
-  background: rgb(31, 28, 46);
+  background:url(http://artem.anmedio.ru/dev/planet/space.jpg) repeat;
+}
+
+.flex {
+  display: flex;
 }

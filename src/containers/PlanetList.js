@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import WebSeriesList from '../components/WebSeriesList';
+import PlanetList from '../components/PlanetList';
 import { getFilteredLists } from '../selectors/lists';
 
 const mapState = (state) => ({
   lists: getFilteredLists(state),
 });
 
-export default connect(mapState)(WebSeriesList);
+export default connect(mapState)(PlanetList);

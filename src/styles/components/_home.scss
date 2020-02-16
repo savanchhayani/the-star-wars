@@ -1,28 +1,9 @@
 .home-container {
-  width: 80%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  .search-component {
-    width: 30%;
-    align-self: flex-end;
-    margin-top: 10px;
-    margin-bottom: 30px;
-
-    font-size: .75rem;
-    transition: color .3s ease-in-out,border-color .3s ease-in-out,background-color .3s ease-in-out;
-    padding: 10px 18px;
-    
-    outline: none;
-    
-    border-radius: .4285rem;
-    border-color: #e14eca;
-    background-color: transparent;
-    box-shadow: none;
-    color: $color;
-  }
 
   .message-component {
     text-align: center;
@@ -32,5 +13,11 @@
     color: $white;
     font-size: 30px;
     margin-bottom: 5px;
+  }
+
+  .btn-logout {
+    position: absolute;
+    right: 10px;
+    top: 10px;
   }
 }

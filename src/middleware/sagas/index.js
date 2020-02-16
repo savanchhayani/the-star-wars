@@ -1,16 +1,23 @@
-import { takeLatest, call, put } from "redux-saga/effects";
-import { FETCH_WEB_SERIES_REQUESTED } from "../../constants/actionsTypes";
-import { fetchWebSeriesCall } from "../../transport/transport";
-import { fetchWebSeriesSuccess } from "../../actions/webSeries";
+import { takeLatest, call, put, fork } from "redux-saga/effects";
+import { SEARCH_PLANETS_SERIES } from "../../constants/actionsTypes";
+import { fetchStarWarsPlanetsCall } from "../../transport/transport";
+import { fetchPlanetsSuccess, fetchPlanetsRequested } from "../../actions/planets";
+import authSaga from "./authSaga";
 
-function* fetchWebSeries() {
-  const res = yield call(fetchWebSeriesCall);
+/**
+ * Calls the planets search API.
+ * @param {ReduxAction} action
+ */
+function* fetchPlanets(action) {
+  yield put(fetchPlanetsRequested());
+  const res = yield call(fetchStarWarsPlanetsCall, action.payload);
 
   if (res.status === 200) {
-    yield put(fetchWebSeriesSuccess(res.data.data));
+    yield put(fetchPlanetsSuccess(res.data.results));
   }
 }
 
 export default function* rootSaga() {
-  yield takeLatest(FETCH_WEB_SERIES_REQUESTED, fetchWebSeries);
-}
+  yield takeLatest(SEARCH_PLANETS_SERIES, fetchPlanets);
+  yield fork(authSaga);
+} 
