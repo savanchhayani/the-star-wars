@@ -1,8 +1,8 @@
 import {
-  FETCH_WEB_SERIES_REQUESTED,
-  FETCH_WEB_SERIES_SUCCESS,
-  FETCH_WEB_SERIES_FAILED,
-  SEARCH_WEB_SERIES
+  FETCH_PLANETS_REQUESTED,
+  FETCH_PLANETS_SUCCESS,
+  FETCH_PLANETS_FAILED,
+  SEARCH_PLANETS_SERIES
 } from "../constants/actionsTypes";
 import { SOMETHING_WENT_WRONG } from "../constants/messages";
 
@@ -16,14 +16,14 @@ const initialState = {
 
 const lists = (state = initialState, action) => {
   switch(action.type) {
-    case FETCH_WEB_SERIES_REQUESTED: {
+    case FETCH_PLANETS_REQUESTED: {
       return {
         ...state,
         isFetching: true,
       }
     }
 
-    case FETCH_WEB_SERIES_SUCCESS: {
+    case FETCH_PLANETS_SUCCESS: {
       return {
         ...state,
         isFetching: false,
@@ -32,7 +32,7 @@ const lists = (state = initialState, action) => {
       }
     }
 
-    case FETCH_WEB_SERIES_FAILED: {
+    case FETCH_PLANETS_FAILED: {
       return {
         ...state,
         isFetching: false,
@@ -40,7 +40,7 @@ const lists = (state = initialState, action) => {
       }
     }
 
-    case SEARCH_WEB_SERIES: {
+    case SEARCH_PLANETS_SERIES: {
       return {
         ...state,
         searchedSeriesText: action.payload,

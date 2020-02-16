@@ -7,7 +7,7 @@ import React from 'react';
 const Search = (props) => 
   <input
     type="text"
-    className= "search-component"
+    className= "input-component"
     placeholder={props.placeholder || ''}
     value={props.value}
     onChange={props.onChange}
